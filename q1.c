@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 int abs_sum(int a, int b){
     if(a+b<0){
