@@ -1,0 +1,38 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+long long int gcd(long long int x, long long int y){
+	if (y==0){
+		return x;
+	}
+	return gcd(y, x%y);
+}
+void solution(){
+	long long int x,y,gd,a,b,min=0;
+	scanf("%lld %lld", &x, &y);
+	if(x>y){
+		gd = gcd(x,y);
+	}else{
+		gd = gcd(y,x);
+	}
+	a= gd/x - 1;
+	for(int i=0; i<3; i++){
+		b= gd/y - 1;
+		for(int j=0; j<3; j++){
+			if(abs(a*x - b*y)< min  &&  (a*x - b*y)!=0 ){
+				min = abs(a*x - b*y);
+				b++;
+			}
+		}
+		a++;
+	}
+	printf("%lld\n", min);
+}
+
+int main(){
+    int T,i;
+    scanf("%d", &T);
+    for(i=0; i<T; i++){
+        solution();
+    }
+}
